@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clinic Appointment Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">🏥 ClinicCare</div>
+    <nav class="tabs">
+      <button class="tab active" data-tab="appointments">Appointments</button>
+      <button class="tab" data-tab="patients">Patients</button>
+      <button class="tab" data-tab="doctors">Doctors</button>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- APPOINTMENTS TAB -->
+    <section id="tab-appointments" class="tab-content active">
+      <div class="section-header">
+        <h2>Appointments</h2>
+        <button class="btn btn-primary" onclick="openModal('modal-add-appointment')">+ New Appointment</button>
+      </div>
+      <div id="appointments-list" class="card-grid"></div>
+    </section>
+
+    <!-- PATIENTS TAB -->
+    <section id="tab-patients" class="tab-content">
+      <div class="section-header">
+        <h2>Patients</h2>
+        <button class="btn btn-primary" onclick="openModal('modal-add-patient')">+ Add Patient</button>
+      </div>
+      <div id="patients-list" class="card-grid"></div>
+    </section>
+
+    <!-- DOCTORS TAB -->
+    <section id="tab-doctors" class="tab-content">
+      <div class="section-header">
+        <h2>Doctors</h2>
+        <button class="btn btn-primary" onclick="openModal('modal-add-doctor')">+ Add Doctor</button>
+      </div>
+      <div id="doctors-list" class="card-grid"></div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: Add Appointment -->
+  <div id="modal-add-appointment" class="modal-overlay hidden">
+    <div class="modal">
+      <h3>New Appointment</h3>
+      <label>Patient ID <input type="number" id="appt-patient-id" placeholder="Patient ID" /></label>
+      <label>Doctor ID <input type="number" id="appt-doctor-id" placeholder="Doctor ID" /></label>
+      <label>Date & Time <input type="datetime-local" id="appt-date" /></label>
+      <label>Notes <textarea id="appt-notes" rows="3" placeholder="Optional notes..."></textarea></label>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeModal('modal-add-appointment')">Cancel</button>
+        <button class="btn btn-primary" onclick="createAppointment()">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Add Patient -->
+  <div id="modal-add-patient" class="modal-overlay hidden">
+    <div class="modal">
+      <h3>Add Patient</h3>
+      <label>First Name <input type="text" id="pat-first" placeholder="First name" /></label>
+      <label>Last Name <input type="text" id="pat-last" placeholder="Last name" /></label>
+      <label>Email <input type="email" id="pat-email" placeholder="email@example.com" /></label>
+      <label>Phone <input type="text" id="pat-phone" placeholder="+1 234 567 8900" /></label>
+      <label>Date of Birth <input type="date" id="pat-dob" /></label>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeModal('modal-add-patient')">Cancel</button>
+        <button class="btn btn-primary" onclick="createPatient()">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Add Doctor -->
+  <div id="modal-add-doctor" class="modal-overlay hidden">
+    <div class="modal">
+      <h3>Add Doctor</h3>
+      <label>First Name <input type="text" id="doc-first" placeholder="First name" /></label>
+      <label>Last Name <input type="text" id="doc-last" placeholder="Last name" /></label>
+      <label>Specialization <input type="text" id="doc-spec" placeholder="e.g. Cardiologist" /></label>
+      <label>Email <input type="email" id="doc-email" placeholder="email@example.com" /></label>
+      <label>Phone <input type="text" id="doc-phone" placeholder="+1 234 567 8900" /></label>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeModal('modal-add-doctor')">Cancel</button>
+        <button class="btn btn-primary" onclick="createDoctor()">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
