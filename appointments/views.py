@@ -2,9 +2,12 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
-from .models import Appointment
-from .serializers import AppointmentSerializer, AppointmentCreateSerializer, AppointmentUpdateSerializer
-
+from appointments.models import Appointment
+from appointments.serializers import (
+    AppointmentSerializer,
+    AppointmentCreateSerializer,
+    AppointmentUpdateSerializer,
+)
 
 def _full(appt):
     return AppointmentSerializer(

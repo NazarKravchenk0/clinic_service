@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Appointment, AppointmentStatus
+from appointments.models import Appointment, AppointmentStatus
 from patients.serializers import PatientSerializer
 from doctors.serializers import DoctorSerializer
 
