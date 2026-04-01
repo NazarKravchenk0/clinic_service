@@ -1,6 +1,6 @@
 # 🏥 Clinic Appointment Service
 
-A full-stack clinic appointment management system built with **FastAPI**, **SQLAlchemy**, **SQLite**, and a plain HTML/CSS/JS frontend.
+A full-stack clinic appointment management system built with **Django REST Framework**, **SQLAlchemy**, **SQLite**, and a plain HTML/CSS/JS frontend.
 
 ---
 
@@ -10,7 +10,7 @@ A full-stack clinic appointment management system built with **FastAPI**, **SQLA
 clinic_service/
 ├── backend/
 │   ├── app/
-│   │   ├── main.py              # FastAPI app entry point
+│   │   ├── main.py              # Django REST Framework app entry point
 │   │   ├── database/db.py       # SQLAlchemy engine & session
 │   │   ├── models/models.py     # ORM models (Patient, Doctor, Appointment)
 │   │   ├── schemas/schemas.py   # Pydantic schemas
@@ -40,7 +40,7 @@ clinic_service/
 ```bash
 cd backend
 pip install -r requirements.txt
-uvicorn app.main:app --reload
+
 ```
 
 Open: [http://localhost:8000](http://localhost:8000)
@@ -113,7 +113,7 @@ DATABASE_URL=sqlite:///./clinic.db
 
 ## 🛠 Tech Stack
 
-- **Backend**: Python 3.11, FastAPI, SQLAlchemy, Pydantic v2
+- **Backend**: Python 3.11, Django REST Framework, SQLAlchemy, Pydantic v2
 - **Database**: SQLite (dev) / PostgreSQL (prod)
 - **Frontend**: HTML5, CSS3, Vanilla JS
 - **Container**: Docker, Docker Compose, Nginx
